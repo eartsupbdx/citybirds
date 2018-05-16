@@ -1,4 +1,4 @@
-var api_key = "033573301650097971526473934";
+var api_key = "VOTRE_CLE_API";
 
 // gestion des interuptions GPIO
 var Gpio = require('onoff').Gpio;
