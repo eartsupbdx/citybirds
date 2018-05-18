@@ -23,13 +23,13 @@ pir.watch(function(err, value) {
 			
 			var timestamp = new Date().getTime();
 			
-			child_process.exec('fswebcam -d /dev/video0 -p YUYV -r 640x480 --jpeg 90 -s Sharpness=40% --fps 30 image.jpg', function(error, stdout, stderr){
+			child_process.exec('fswebcam -d /dev/video0 -p YUYV -r 640x480 --jpeg 90 -s Sharpness=40% --fps 30 ./image.jpg', function(error, stdout, stderr){
 				console.log("end shooting");
 				
 				console.log("uploading image" );
 				var formData = {
 					api_key: api_key,
-					exampleFileUpload: fs.createReadStream( "/var/www/html/image.jpg" )
+					exampleFileUpload: fs.createReadStream( "./image.jpg" )
 				};
 				request.post({url:'http://www.citybirds.info/post-pic/', formData: formData}, function optionalCallback(err, httpResponse, body) {
 					if (err) {
